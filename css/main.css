@@ -1,0 +1,429 @@
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&family=Manrope:wght@800&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.overlay {
+  position: absolute;
+  width: calc(100vw - 20rem);
+  height: 100vh;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+main {
+  min-height: 100vh;
+  background: #fafafa;
+  font-family: 'Epilogue',sans-serif;
+  font-size: 18px;
+  overflow-x: hidden;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 1.5rem 3rem;
+}
+
+@media screen and (max-width: 512px) {
+  header {
+    padding: 1.5rem 1rem;
+  }
+}
+
+header .menu-bars {
+  display: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  header .menu-bars {
+    display: block;
+  }
+}
+
+.active {
+  width: 20rem;
+}
+
+nav .close-menu {
+  display: none;
+}
+
+nav .navbar-menus,
+nav .login-register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav .active-submenu .bx {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+nav .active-submenu .submenus {
+  display: block;
+}
+
+nav .login-register li {
+  margin: 0 auto;
+}
+
+nav .login-register li a {
+  color: dimgray;
+  font-size: 18px;
+  text-transform: none;
+  font-weight: 500;
+  font-family: "Epilogue";
+  text-align: center;
+  letter-spacing: normal;
+  line-height: normal;
+  cursor: pointer;
+}
+
+nav .login-register li a:hover {
+  color: #141414;
+  font-weight: 700;
+}
+
+nav .login-register .register a {
+  padding: .6rem 3rem;
+  border: 2px solid dimgray;
+  border-radius: 15px;
+}
+
+nav .login-register .register a:hover {
+  border: 2px solid #141414;
+}
+
+@media screen and (max-width: 1024px) {
+  nav {
+    display: block;
+    position: fixed;
+    margin: 0;
+    background: white;
+    width: 0rem;
+    height: 100%;
+    top: 0%;
+    right: 0%;
+    -webkit-transition: 0.2s ease;
+    transition: 0.2s ease;
+  }
+  nav .close-menu {
+    display: block;
+    margin: 1.5rem 0 0 17rem;
+    cursor: pointer;
+  }
+  nav .navbar-menus {
+    margin: 1rem 1.5rem;
+    width: calc(100% - 3rem);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  nav .navbar-menus .features,
+  nav .navbar-menus .company,
+  nav .navbar-menus .about,
+  nav .navbar-menus .careers {
+    margin-top: 2rem;
+  }
+  nav .login-register {
+    width: calc(100% - 3rem);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 3rem 1.5rem;
+  }
+  nav .login-register li {
+    margin-bottom: 2rem;
+  }
+  nav .login-register .register a {
+    padding: .7rem 6rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  nav {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: 5%;
+  }
+  nav .navbar-menus {
+    width: 50%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  nav .login-register {
+    margin-left: 20%;
+    width: 30%;
+  }
+  nav .submenus {
+    position: absolute;
+    padding: .8rem 1.5rem;
+    margin-top: 1rem;
+    border-radius: 15px;
+    background: white;
+    -webkit-box-shadow: 0px 0px 55px -10px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 55px -10px rgba(0, 0, 0, 0.75);
+  }
+  nav .features-submenu {
+    left: 8.7rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  nav .navbar-menus {
+    width: 40%;
+  }
+  nav .login-register {
+    margin-left: 30%;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.features .company-features,
+.company .company-features {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: dimgray;
+  cursor: pointer;
+}
+
+.features .company-features:hover,
+.company .company-features:hover {
+  font-weight: 700;
+  color: #141414;
+}
+
+.features li a,
+.company li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: dimgray;
+  cursor: pointer;
+}
+
+.features li a:hover,
+.company li a:hover {
+  font-weight: 700;
+  color: #141414;
+}
+
+.submenus {
+  display: none;
+  margin-top: 1rem;
+}
+
+.submenus li a {
+  padding: .6rem 0;
+  cursor: pointer;
+}
+
+.submenus li a:hover {
+  color: #141414;
+  font-weight: 700;
+}
+
+.submenus li a p {
+  margin-left: .8rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .submenus {
+    padding-left: 1.5rem;
+  }
+}
+
+.careers a,
+.about a {
+  color: dimgray;
+  cursor: pointer;
+}
+
+.careers a:hover,
+.about a:hover {
+  font-weight: 700;
+  color: #141414;
+}
+
+section {
+  width: 100vw;
+  height: calc(100vh - 7rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+section p {
+  color: dimgray;
+  margin-top: 1.5rem;
+  line-height: 1.5rem;
+}
+
+section .learn-more {
+  text-align: center;
+  padding: 1.2rem 0;
+  width: 11rem;
+  border-radius: 15px;
+  background: #141414;
+  color: white;
+  cursor: pointer;
+}
+
+section .learn-more:hover {
+  background: white;
+  color: #141414;
+  border: 2px solid #141414;
+}
+
+section .watermarks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: auto;
+  min-width: calc(100% - 3rem);
+}
+
+section .watermarks li img {
+  width: 80%;
+}
+
+@media screen and (max-width: 768px) {
+  section .remote {
+    height: 55%;
+    padding: 10% 5%;
+  }
+  section .image-background {
+    height: 45%;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  section .remote {
+    padding: 4rem 12rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  section .remote {
+    height: 50%;
+  }
+  section .remote h1 {
+    text-align: center;
+    font-size: 35px;
+  }
+  section .remote p {
+    text-align: center;
+  }
+  section .remote .learn-more {
+    margin: 2rem auto;
+  }
+  section .remote .watermarks {
+    width: 70%;
+  }
+  section .image-background {
+    height: 50%;
+    background: url("../images/image-hero-mobile.png") no-repeat center center;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  section {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: calc(100vw - 20%);
+    margin: 0 auto;
+  }
+  section .remote {
+    width: 55%;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 12% 11% 3rem 2rem;
+    display: flex;
+  }
+  section .remote h1 {
+    font-size: 70px;
+  }
+  section .remote p {
+    width: 90%;
+  }
+  section .remote .learn-more {
+    margin: 10% 0;
+  }
+  section .remote .watermarks {
+    margin: 5% 0;
+  }
+  section .remote .watermarks li img {
+    width: 80%;
+  }
+  section .image-background {
+    width: 45%;
+    height: auto;
+    background: url("../images/image-hero-desktop.png") no-repeat center center;
+    background-size: cover;
+  }
+}

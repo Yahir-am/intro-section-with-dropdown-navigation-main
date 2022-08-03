@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&family=Manrope:wght@800&display=swap');
+
+$almostWhite: hsl(0, 0%, 98%);
+$mediumGray: hsl(0, 0%, 41%);
+$almostBlack: hsl(0, 0%, 8%);
+
+@mixin size($width,$heigth) {
+    width: $width;
+    height: $heigth;
+}
+@mixin display($justifyContent,$alignItems,$flexDirection) {
+    display: flex;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    flex-direction: $flexDirection;
+}
+@mixin typography($color,$fontz,$transform,$weigth,$family,$align,$letterspacing,$line) {
+     color: $color;
+     font-size: $fontz;
+     text-transform: $transform;
+     font-weight: $weigth;
+     font-family: $family;
+     text-align: $align;
+     letter-spacing: $letterspacing;
+     line-height: $line;
+}
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.overlay{
+    position: absolute;
+    @include size(calc(100vw - 20rem),100vh);
+    transition: 0.2s ease;
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+}
+main{
+    min-height: 100vh;
+    background: $almostWhite;
+    font-family: 'Epilogue',sans-serif;
+    font-size: 18px;
+    overflow-x: hidden;
+}
+header{
+    @include display(space-between,flex-start,row);
+    padding: 1.5rem 3rem;
+    @media screen and (max-width: 512px){
+        padding: 1.5rem 1rem;
+    }
+    .menu-bars{
+        display: none;
+        cursor: pointer;
+    }
+    @media screen and (max-width: 1024px){
+        .menu-bars{
+            display: block;
+        }
+    }
+}
+.active{
+    width: 20rem;
+}
+nav{
+    .close-menu{
+        display: none;
+    }
+    .navbar-menus,
+    .login-register{
+        display: flex;
+    }
+    .active-submenu{
+        .bx{
+            transform: rotate(180deg);
+            transition: 0.2s ease;
+        }
+        .submenus{
+            display: block;
+        }
+    }
+    .login-register{
+        li{
+            margin: 0 auto;
+            a{
+                @include typography($mediumGray,18px,none, 500, 'Epilogue',center,normal,normal);
+                cursor: pointer;
+                &:hover{
+                    color: $almostBlack;
+                    font-weight: 700;
+                }
+            }
+        }
+        .register{
+            a{
+                padding: .6rem 3rem;
+                border: 2px solid $mediumGray;
+                border-radius: 15px;
+                &:hover{
+                    border: 2px solid $almostBlack;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 1024px){
+        display: block;
+        position: fixed;
+        margin: 0;
+        background: white;
+        @include size(0rem,100%);
+        top: 0%;                                      
+        right: 0%;
+        transition: 0.2s ease;
+        .close-menu{
+            display: block;
+            margin: 1.5rem 0 0 17rem;
+            cursor: pointer;
+        }
+        .navbar-menus{
+            margin: 1rem 1.5rem;
+            width: calc(100% - 3rem);
+            flex-direction: column;
+            .features,
+            .company,
+            .about,
+            .careers{
+                margin-top: 2rem;
+            }
+        }
+        .login-register{
+            width: calc(100% - 3rem);
+            flex-direction: column;
+            margin: 3rem 1.5rem;
+            li{
+                margin-bottom: 2rem;
+            }
+            .register{
+                a{
+                    padding: .7rem 6rem;
+                }
+            }
+        }
+
+    }
+    @media screen and (min-width: 1025px){
+        width: 100%;
+        display: flex;
+        margin-left: 5%;
+        .navbar-menus{
+            width: 50%;
+            justify-content: space-between;
+        }
+        .login-register{
+            margin-left: 20%;
+            width: 30%;
+        }
+        .submenus{
+            position: absolute;
+            padding: .8rem 1.5rem;
+            margin-top: 1rem;
+            border-radius: 15px;
+            background: white;
+            -webkit-box-shadow: 0px 0px 55px -10px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 55px -10px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 55px -10px rgba(0,0,0,0.75);
+        }
+        .features-submenu{
+            left: 8.7rem;
+        }
+    }
+    @media screen and (min-width: 1200px){
+        .navbar-menus{
+            width: 40%;
+        }
+        .login-register{
+            margin-left: 30%;
+        }
+    }
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.features,
+.company{
+    .company-features{
+        display: flex;
+        color: $mediumGray;
+        cursor: pointer;
+        &:hover{
+            font-weight: 700;
+            color: $almostBlack;
+        }   
+    }
+    li{
+        a{
+            display: flex;
+            color: $mediumGray;
+            cursor: pointer;
+            &:hover{
+                font-weight: 700;
+                color: $almostBlack;
+            }
+        }
+    }
+}
+.submenus{
+    display: none;
+    margin-top: 1rem;
+    li{
+        a{
+            padding: .6rem 0;
+            cursor: pointer;
+            &:hover{
+            color: $almostBlack;
+            font-weight: 700;
+            }
+            p{
+                margin-left: .8rem;
+            }
+        }
+    }
+    @media screen and (max-width: 1024px){
+        padding-left: 1.5rem;
+    }
+}
+.careers,
+.about{
+    a{
+        color: $mediumGray;
+        cursor: pointer;
+        &:hover{
+            font-weight: 700;
+                color: $almostBlack;
+        }
+    }
+}
+section{
+    @include size(100vw,calc(100vh - 7rem));
+    display: flex;
+    flex-direction: column-reverse;
+    p{
+        color: $mediumGray;
+        margin-top: 1.5rem;
+        line-height: 1.5rem;
+    }
+    .learn-more{
+        text-align: center;
+        padding: 1.2rem 0;
+        width: 11rem;
+        border-radius: 15px;
+        background: $almostBlack;
+        color: white;
+        cursor: pointer;
+        &:hover{
+            background: white;
+            color: $almostBlack;
+            border: 2px solid $almostBlack;
+        }
+    }
+    .watermarks{
+        @include display(space-between,center, row);
+        margin: auto;
+        min-width: calc(100% - 3rem);
+        li{
+            img{
+                width: 80%;
+            }
+        }
+    }
+    @media screen and (max-width: 768px){
+        .remote{
+            height: 55%;
+            padding: 10% 5%;
+        }
+        .image-background{
+            height: 45%;      
+        }
+    }
+    @media screen and (min-width: 769px){
+        .remote{
+            padding: 4rem 12rem;
+        }
+    }
+    @media screen and (max-width: 1024px){
+        .remote{
+            height: 50%;
+            h1{
+                text-align: center;
+                font-size: 35px;
+            }
+            p{
+                text-align: center;
+            }
+            .learn-more{
+                margin: 2rem auto;
+            }
+            .watermarks{
+                width: 70%;
+            }
+        }
+        .image-background{
+            height: 50%;
+            background: url('../images/image-hero-mobile.png') no-repeat center center;
+            background-size: cover;
+        }
+    }
+    @media screen and (min-width: 1025px){
+        flex-direction: row;
+        width: calc(100vw - 20%);
+        margin: 0 auto;
+        .remote{
+            @include size(55%,auto);
+            @include display(flex-start,flex-start,column);
+            padding: 12% 11% 3rem 2rem;
+            display: flex;
+            h1{
+                font-size: 70px;
+            }
+            p{
+                width: 90%;
+            }
+            .learn-more{
+                margin: 10% 0;
+            }
+            .watermarks{
+                margin: 5% 0;
+                li{
+                    img{
+                        width: 80%;
+                    }
+                }
+            }
+        }
+        .image-background{
+            @include size(45%,auto);
+            background: url('../images/image-hero-desktop.png') no-repeat center center;
+            background-size: cover;
+        }
+    }
+}
+
+
+
+
